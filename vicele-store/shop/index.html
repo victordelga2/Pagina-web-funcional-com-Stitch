@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VICELE STORE - Catalog</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-secondary-fixed-variant": "#454747",
+                        "tertiary-fixed": "#e3e2e2",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "inverse-primary": "#c6c6c6",
+                        "on-primary-fixed": "#1b1b1b",
+                        "tertiary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "surface-tint": "#5e5e5e",
+                        "on-secondary-container": "#5f6161",
+                        "surface-variant": "#e2e2e2",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#cfc4c5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "inverse-on-surface": "#f0f1f1",
+                        "primary-fixed": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#464747",
+                        "surface-container-low": "#f3f3f4",
+                        "surface": "#f9f9f9",
+                        "surface-container": "#eeeeee",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-surface-variant": "#4c4546",
+                        "outline": "#7e7576",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary": "#5d5f5f",
+                        "on-background": "#1a1c1c",
+                        "background": "#f9f9f9",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "secondary-container": "#dcdddd",
+                        "primary-container": "#1b1b1b",
+                        "primary": "#000000",
+                        "on-primary-container": "#848484",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "tertiary-fixed-dim": "#c7c6c6",
+                        "on-tertiary-container": "#838484",
+                        "tertiary-container": "#1a1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "md": "16px",
+                        "unit": "4px",
+                        "xxl": "96px",
+                        "xs": "4px",
+                        "xl": "48px",
+                        "margin-desktop": "64px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["\"Source Sans 3\""],
+                        "label-sm": ["Inter"],
+                        "body-md": ["\"Source Sans 3\""]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-xl": ["80px", { "lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 dark:bg-surface/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant dark:border-secondary">
+<div class="flex justify-between items-center px-margin-desktop py-4 w-full max-w-[1600px] mx-auto">
+<!-- Brand -->
+<a class="font-headline-md text-headline-md tracking-tighter font-black text-primary dark:text-on-primary-fixed" href="/">VICELE</a>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden md:flex gap-lg items-center">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300" href="/shop/">NEW ARRIVALS</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300" href="/shop/">COLLECTIONS</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300" href="/shop/">GORPCORE</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300" href="/shop/">RETRO FOOTBALL</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300" href="/shop/">URBANWEAR</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300" href="/shop/">ARCHIVES</a>
+</div>
+<!-- Trailing Icons -->
+<div class="flex items-center gap-md text-primary dark:text-on-primary-fixed">
+<button class="hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300 opacity-70 hover:opacity-100"><span class="material-symbols-outlined">search</span></button>
+<a class="hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300 opacity-70 hover:opacity-100 flex items-center" href="/account/"><span class="material-symbols-outlined">person</span></a>
+<button class="hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300 opacity-70 hover:opacity-100"><span class="material-symbols-outlined">favorite</span></button>
+<a class="hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300 opacity-70 hover:opacity-100 relative flex items-center" href="/cart/">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-error text-on-error rounded-full w-4 h-4 flex items-center justify-center text-[10px] hidden" id="cart-counter">0</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-[80px] min-h-screen">
+<div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop py-xl">
+<!-- Page Header -->
+<header class="mb-xl flex flex-col md:flex-row md:items-end justify-between gap-md border-b border-outline-variant pb-md">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary uppercase">CATALOG</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-sm">248 ITEMS</p>
+</div>
+<!-- Sort Dropdown -->
+<div class="flex items-center gap-sm">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">SORT BY:</label>
+<select class="filter-input bg-transparent border-none p-0 pr-6 font-label-sm text-label-sm uppercase text-primary focus:ring-0 cursor-pointer appearance-none" name="sort">
+<option>FEATURED</option>
+<option>NEWEST</option>
+<option>PRICE L-H</option>
+<option>PRICE H-L</option>
+<option>BEST SELLING</option>
+</select>
+</div>
+</header>
+<div class="flex flex-col md:flex-row gap-xl relative">
+<!-- Sidebar Filters -->
+<aside class="w-full md:w-[240px] shrink-0 sticky top-[100px] h-fit hidden md:block">
+<div class="space-y-lg">
+<!-- Category Filter -->
+<div class="border-b border-outline-variant pb-md">
+<h3 class="font-label-sm text-label-sm uppercase mb-md text-primary flex justify-between items-center cursor-pointer">
+                                CATEGORY <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</h3>
+<div class="flex flex-col gap-sm">
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="filter-input w-4 h-4 border-outline-variant text-primary focus:ring-primary rounded-none bg-surface-container-lowest" name="category" type="checkbox" value="outerwear"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary transition-colors">OUTERWEAR (42)</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="filter-input w-4 h-4 border-outline-variant text-primary focus:ring-primary rounded-none bg-surface-container-lowest" name="category" type="checkbox" value="tops"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary transition-colors">TOPS (89)</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="filter-input w-4 h-4 border-outline-variant text-primary focus:ring-primary rounded-none bg-surface-container-lowest" name="category" type="checkbox" value="bottoms"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary transition-colors">BOTTOMS (56)</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="filter-input w-4 h-4 border-outline-variant text-primary focus:ring-primary rounded-none bg-surface-container-lowest" name="category" type="checkbox" value="accessories"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary transition-colors">ACCESSORIES (61)</span>
+</label>
+</div>
+</div>
+<!-- Size Filter -->
+<div class="border-b border-outline-variant pb-md">
+<h3 class="font-label-sm text-label-sm uppercase mb-md text-primary flex justify-between items-center cursor-pointer">
+                                SIZE <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</h3>
+<div class="grid grid-cols-3 gap-unit">
+<button class="filter-btn border border-outline-variant py-xs font-label-sm text-label-sm text-on-surface-variant hover:border-primary hover:text-primary transition-all" data-value="XS">XS</button>
+<button class="filter-btn border border-outline-variant py-xs font-label-sm text-label-sm text-on-surface-variant hover:border-primary hover:text-primary transition-all" data-value="S">S</button>
+<button class="filter-btn border border-primary bg-primary text-on-primary py-xs font-label-sm text-label-sm transition-all" data-value="M">M</button>
+<button class="filter-btn border border-outline-variant py-xs font-label-sm text-label-sm text-on-surface-variant hover:border-primary hover:text-primary transition-all" data-value="L">L</button>
+<button class="filter-btn border border-outline-variant py-xs font-label-sm text-label-sm text-on-surface-variant hover:border-primary hover:text-primary transition-all" data-value="XL">XL</button>
+<button class="filter-btn border border-outline-variant py-xs font-label-sm text-label-sm text-on-surface-variant hover:border-primary hover:text-primary transition-all" data-value="XXL">XXL</button>
+</div>
+</div>
+<!-- Price Range Filter -->
+<div class="border-b border-outline-variant pb-md">
+<h3 class="font-label-sm text-label-sm uppercase mb-md text-primary flex justify-between items-center cursor-pointer">
+                                PRICE <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</h3>
+<div class="flex flex-col gap-sm">
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="filter-input w-4 h-4 border-outline-variant text-primary focus:ring-primary rounded-none bg-surface-container-lowest" name="price" type="radio" value="under_100"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary transition-colors">UNDER $100</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="filter-input w-4 h-4 border-outline-variant text-primary focus:ring-primary rounded-none bg-surface-container-lowest" name="price" type="radio" value="100_250"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary transition-colors">$100 - $250</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="filter-input w-4 h-4 border-outline-variant text-primary focus:ring-primary rounded-none bg-surface-container-lowest" name="price" type="radio" value="over_250"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary transition-colors">OVER $250</span>
+</label>
+</div>
+</div>
+</div>
+</aside>
+<!-- Product Grid Area -->
+<div class="flex-1">
+<!-- Main Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-md gap-y-xl">
+<!-- Product Card 1 -->
+<div class="product-card group cursor-pointer flex flex-col" data-product-id="prod-1">
+<div class="relative w-full aspect-[3/4] bg-surface-container-lowest overflow-hidden border border-outline-variant" data-product-id="product">
+<!-- Badge -->
+<div class="absolute top-sm left-sm z-10 bg-primary text-on-primary px-sm py-xs font-label-sm text-label-sm uppercase">NEW</div>
+<!-- Wishlist -->
+<button class="wishlist-btn absolute top-sm right-sm z-20 text-on-surface-variant hover:text-error transition-colors p-sm opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<!-- Images -->
+<img class="w-full h-full object-cover transition-opacity duration-500 ease-in-out group-hover:opacity-0 absolute inset-0" data-alt="A high-fashion editorial full-body shot of a model wearing a technical, oversized black gorpcore shell jacket and wide-leg utilitarian cargo pants." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABEXg5cUpDt0rOTsp-TFS8kUsYMz-5jASe8WL3d4gQF760dVJzy8_6OEAuh_Dw520V7Nkm_-0s_Onoa8Rm6nzCF78rv1xSavaWiU2p0pUiAB25Tpx8A9MbBF7LPmX3O2Iw_fYSapri6ure4HtJ9nqyUNv-JNhwZvsViBJGhxGA7kezqRYVFLQ0rhNwiJoujD3mh3k6dxhRGhdIq5e8v2CS6e-DOpsY9xfUTQq_qJCJNsmeZWJqvp1i_Q"/>
+<img class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100 absolute inset-0 transform scale-105 group-hover:scale-100 transition-transform" data-alt="A detailed close-up shot focusing on the intricate textures and utilitarian details of a premium black technical streetwear jacket." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7cOJ4pfBtQfrD7kwAVW5B6n4ClKph6YkWKETOAX1kjkdbNhqOjtcJPDtGUljl61wodhz9CIz8LH4oWUteEqyPeTk0aotUUC8pOOIcuBKXvlgqxX617CV82Kw0-jSkBSMmSlx9Zs60H0fO452DtqezBrKmH7O7hPfDB8jjQUXc8eYPyKiJ-LydH1lc8_MZR09uYM4f0dLjknpB23Zg8ODb-UBCsPIKzlfIaaR8KenTPsJP8bpbBwN0WA"/>
+<!-- Quick Add -->
+<button class="quick-add-btn absolute bottom-0 left-0 w-full bg-surface-container-lowest/90 backdrop-blur-sm border-t border-outline-variant py-md font-label-sm text-label-sm uppercase text-primary transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 hover:bg-primary hover:text-on-primary" data-name="" data-product-id="product">
+                                    QUICK ADD +
+                                </button>
+</div>
+<div class="mt-md flex justify-between items-start">
+<div>
+<h3 class="font-label-sm text-label-sm uppercase text-primary mb-xs">AEGIS SHELL JACKET</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">BLACK / TECH</p>
+</div>
+<span class="font-label-sm text-label-sm text-primary">$385</span>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="product-card group cursor-pointer flex flex-col" data-product-id="prod-2">
+<div class="relative w-full aspect-[3/4] bg-surface-container-lowest overflow-hidden border border-outline-variant" data-product-id="product">
+<!-- Wishlist -->
+<button class="wishlist-btn absolute top-sm right-sm z-20 text-on-surface-variant hover:text-error transition-colors p-sm opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<!-- Images -->
+<img class="w-full h-full object-cover transition-opacity duration-500 ease-in-out group-hover:opacity-0 absolute inset-0" data-alt="A minimalist editorial shot of a sleek, structural white hoodie worn by an anonymous model." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAYH3Y98MwpJyhMzfEdv5RChDHxeFaP-60zTnacJ7DIaTlN5cgnGvkCsYbPBStVGhfDG7bm6G7o6nLoAn5RVTYvhahqiZHK3_3XbO1_AyhqB0lPvN5QzwI6z9lXPcsWpM5XzXeCMNkrGngpTLBT91JVZUuEUGcTlGsm9gFsshZ5Y2U2S1kMuPzK5LKOXZmKMndSKmZkYGnTpkQ8UochPH8awi5My-oXELGxkd-Iju8sOzKuG_ZJy0mmA"/>
+<img class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100 absolute inset-0 transform scale-105 group-hover:scale-100 transition-transform" data-alt="A close-up macro shot of premium, heavy-weight cotton fabric on a white structural hoodie." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlCF_sl24Pn2sPBMYmdf-3T09Vcp6XoSmfZq25AcaKMUZsIZH3m-C_IjZxzt4x05XI-6mRduCCDcLv7AtCi-fQ2wLG_1RyawYRw8GNjxQnf7-ZX1AObWqqHrwAa2sem_OdYWrvh_m5pkPnzqG9xeF8tmYl0JS2e9fStMxsibyJFdNoPzMqrYNPTbqW2O8hr2b5KMog201Mt8vkIF_TLgRv4_k7C5UUf16tBqdephHGVnQcmXuEGU4hhg"/>
+<button class="quick-add-btn absolute bottom-0 left-0 w-full bg-surface-container-lowest/90 backdrop-blur-sm border-t border-outline-variant py-md font-label-sm text-label-sm uppercase text-primary transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 hover:bg-primary hover:text-on-primary" data-name="" data-product-id="product">
+                                    QUICK ADD +
+                                </button>
+</div>
+<div class="mt-md flex justify-between items-start">
+<div>
+<h3 class="font-label-sm text-label-sm uppercase text-primary mb-xs">STRUCTURAL HOODIE</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">WHITE / HEAVYWEIGHT</p>
+</div>
+<span class="font-label-sm text-label-sm text-primary">$180</span>
+</div>
+</div>
+<!-- Product Card 3 (Sale) -->
+<div class="product-card group cursor-pointer flex flex-col" data-product-id="prod-3">
+<div class="relative w-full aspect-[3/4] bg-surface-container-lowest overflow-hidden border border-outline-variant" data-product-id="product">
+<!-- Badge -->
+<div class="absolute top-sm left-sm z-10 bg-error text-on-error px-sm py-xs font-label-sm text-label-sm uppercase">SALE</div>
+<!-- Wishlist -->
+<button class="wishlist-btn absolute top-sm right-sm z-20 text-on-surface-variant hover:text-error transition-colors p-sm opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<!-- Images -->
+<img class="w-full h-full object-cover transition-opacity duration-500 ease-in-out group-hover:opacity-0 absolute inset-0" data-alt="A dynamic, low-angle streetwear fashion photograph featuring wide-leg, washed grey cargo pants with multiple layered pockets." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9ragVNnyD_aMJojBgHnmjcraDwdCimDXUVet4_acIIYjTiXji8Jhn3dshd6p8azU5KgDlsXQRTbpC72CK2AtYzOs1ivkC-EZDAKt1fEBst1T0w92FjnwKQgtWI-1sn4q7ZMH3zmIRk3H_kLKmJJkltguR2OTWPzwfI6JSh96zydlgvGnoQ2kEi9PRb3TA5UoQFtJvzjPkONOBIi6wQroDUETiKtlLmrTQprm3YyUW6cOfhWodp4SPNQ"/>
+<img class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100 absolute inset-0 transform scale-105 group-hover:scale-100 transition-transform" data-alt="Detailed flat-lay photography of washed grey technical cargo pants on a pristine white surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8P6xIu1XRKFu3X8nfdeurgM9XXLkxuX-Y7A19R1OxXVtpQitxtHN5aeLlE5EFyBFx-n8cafq_hUpVRq4XDsx84AcXZGUj59Nv_TKZlshpb5picPspXHx2aqPmMFtXavyJHZobMQpPnb6A5rpt1o0a8R6o7Q5xaB_JNt_Om-71O5LyLfYq5HT_W3dTiG2JS8-rFF_9K15KFtP-0vG7de0dQqXeacFdZitC8EoxHwaNcHI2CEAvFpe3Ow"/>
+<button class="quick-add-btn absolute bottom-0 left-0 w-full bg-surface-container-lowest/90 backdrop-blur-sm border-t border-outline-variant py-md font-label-sm text-label-sm uppercase text-primary transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 hover:bg-primary hover:text-on-primary" data-name="" data-product-id="product">
+                                    QUICK ADD +
+                                </button>
+</div>
+<div class="mt-md flex justify-between items-start">
+<div>
+<h3 class="font-label-sm text-label-sm uppercase text-primary mb-xs">MODULAR CARGO PANT</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">WASHED GREY</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-error">$210</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant line-through text-[10px]">$280</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Loading Skeletons Section (Demonstration) -->
+<div class="mt-xxl border-t border-outline-variant pt-xl">
+<h2 class="font-label-sm text-label-sm uppercase text-on-surface-variant mb-lg">STATE: LOADING (SKELETONS)</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-md gap-y-xl opacity-60">
+<!-- Skeleton 1 -->
+<div class="flex flex-col animate-pulse">
+<div class="w-full aspect-[3/4] bg-surface-container border border-outline-variant"></div>
+<div class="mt-md flex justify-between items-start">
+<div class="w-2/3">
+<div class="h-3 bg-surface-container mb-xs w-full"></div>
+<div class="h-3 bg-surface-container w-1/2"></div>
+</div>
+<div class="h-3 bg-surface-container w-1/4"></div>
+</div>
+</div>
+<!-- Skeleton 2 -->
+<div class="flex flex-col animate-pulse">
+<div class="w-full aspect-[3/4] bg-surface-container border border-outline-variant"></div>
+<div class="mt-md flex justify-between items-start">
+<div class="w-2/3">
+<div class="h-3 bg-surface-container mb-xs w-full"></div>
+<div class="h-3 bg-surface-container w-1/2"></div>
+</div>
+<div class="h-3 bg-surface-container w-1/4"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State Section (Demonstration) -->
+<div class="mt-xxl border-t border-outline-variant pt-xl pb-xxl flex flex-col items-center justify-center text-center">
+<h2 class="font-label-sm text-label-sm uppercase text-on-surface-variant mb-lg absolute left-0 ml-margin-desktop mt-[-40px]">STATE: EMPTY</h2>
+<span class="material-symbols-outlined text-[48px] text-surface-tint mb-md">inventory_2</span>
+<h3 class="font-headline-md text-headline-md text-primary uppercase mb-sm">NO RESULTS FOUND</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">We couldn't find any products matching your current filters. Try adjusting your search criteria or explore our latest arrivals.</p>
+<button class="mt-lg bg-primary text-on-primary border border-primary px-lg py-sm font-label-sm text-label-sm uppercase hover:bg-surface-variant hover:text-primary transition-colors duration-300">CLEAR FILTERS</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface-dim w-full py-xxl border-t border-outline-variant dark:border-secondary">
+<div class="max-w-7xl mx-auto px-margin-desktop grid grid-cols-2 md:grid-cols-5 gap-xl">
+<!-- Brand Column -->
+<div class="col-span-2 md:col-span-1">
+<a class="font-headline-md text-headline-md font-black text-primary" href="/">VICELE</a>
+</div>
+<!-- Links Columns -->
+<div class="flex flex-col gap-sm">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-secondary-container hover:underline decoration-1 underline-offset-4 transition-all duration-200" href="/shop/">Shop</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-secondary-container hover:underline decoration-1 underline-offset-4 transition-all duration-200" href="/#help">Help</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-secondary-container hover:underline decoration-1 underline-offset-4 transition-all duration-200" href="/#about">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-secondary-container hover:underline decoration-1 underline-offset-4 transition-all duration-200" href="/#legal">Legal</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-secondary-container hover:underline decoration-1 underline-offset-4 transition-all duration-200" href="/#social">Social</a>
+</div>
+<!-- Empty columns for grid structure as per minimal footer design intent -->
+<div class="hidden md:block"></div>
+<div class="hidden md:block"></div>
+<div class="col-span-2 md:col-span-5 mt-xl pt-lg border-t border-outline-variant dark:border-secondary">
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-on-secondary-container text-xs uppercase tracking-widest">© 2024 VICELE STORE. ALL RIGHTS RESERVED.</p>
+</div>
+</div>
+</footer>
+<script defer="True" src="/assets/vicele.js"></script></body></html>
