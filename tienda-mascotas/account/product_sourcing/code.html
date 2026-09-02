@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VICELE Admin - Sourcing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-secondary-fixed-variant": "#454747",
+                        "tertiary-fixed": "#e3e2e2",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "inverse-primary": "#c6c6c6",
+                        "on-primary-fixed": "#1b1b1b",
+                        "tertiary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "surface-tint": "#5e5e5e",
+                        "on-secondary-container": "#5f6161",
+                        "surface-variant": "#e2e2e2",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#cfc4c5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "inverse-on-surface": "#f0f1f1",
+                        "primary-fixed": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#464747",
+                        "surface-container-low": "#f3f3f4",
+                        "surface": "#f9f9f9",
+                        "surface-container": "#eeeeee",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-surface-variant": "#4c4546",
+                        "outline": "#7e7576",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary": "#5d5f5f",
+                        "on-background": "#1a1c1c",
+                        "background": "#f9f9f9",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "secondary-container": "#dcdddd",
+                        "primary-container": "#1b1b1b",
+                        "primary": "#000000",
+                        "on-primary-container": "#848484",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "tertiary-fixed-dim": "#c7c6c6",
+                        "on-tertiary-container": "#838484",
+                        "tertiary-container": "#1a1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "md": "16px",
+                        "unit": "4px",
+                        "xxl": "96px",
+                        "xs": "4px",
+                        "xl": "48px",
+                        "margin-desktop": "64px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["\"Source Sans 3\""],
+                        "label-sm": ["Inter"],
+                        "body-md": ["\"Source Sans 3\""]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-xl": ["80px", { "lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for technical feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.surface-container-lowest'); 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-container-highest'); 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline-variant'); 
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex">
+<!-- Shared Component: SideNavBar -->
+<nav class="bg-surface-container-lowest h-screen w-64 fixed left-0 top-0 border-r border-outline-variant flex flex-col py-xl z-40">
+<div class="px-margin-mobile md:px-lg mb-xl">
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tighter uppercase">VICELE ADMIN</h1>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mt-sm">Management Suite</p>
+</div>
+<ul class="flex-1 flex flex-col w-full font-label-sm text-label-sm uppercase tracking-widest gap-xs">
+<li>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+</li>
+<li>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="inventory_2">inventory_2</span>
+                    Products
+                </a>
+</li>
+<li>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="shopping_cart">shopping_cart</span>
+                    Orders
+                </a>
+</li>
+<li>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="group">group</span>
+                    Customers
+                </a>
+</li>
+<li>
+<!-- Active Tab Logic: Matches "ADMIN SOURCING" -->
+<a class="bg-primary text-on-primary flex items-center gap-3 px-4 py-3 rounded-none translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="precision_manufacturing">precision_manufacturing</span>
+                    Sourcing
+                </a>
+</li>
+<li>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="analytics">analytics</span>
+                    Analytics
+                </a>
+</li>
+<li>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="settings">settings</span>
+                    Settings
+                </a>
+</li>
+</ul>
+</nav>
+<!-- Main Workspace -->
+<main class="ml-64 flex-1 flex flex-col min-h-screen w-[calc(100%-16rem)]">
+<!-- Header -->
+<header class="sticky top-0 z-30 bg-surface/80 backdrop-blur-md border-b border-outline-variant px-margin-desktop py-lg flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase tracking-tighter">Sourcing Engine</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm">Global supplier network intelligence.</p>
+</div>
+<div class="flex items-center gap-md">
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+</button>
+<div class="w-10 h-10 bg-primary rounded flex items-center justify-center text-on-primary font-label-sm text-label-sm">
+                    AD
+                </div>
+</div>
+</header>
+<!-- Tool Canvas -->
+<div class="flex-1 p-margin-desktop flex flex-col gap-xl">
+<!-- Search & Filters Container -->
+<section class="flex flex-col gap-md">
+<!-- Primary Search -->
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-lg top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded py-lg pl-[64px] pr-lg font-body-lg text-body-lg text-primary placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all shadow-sm" placeholder="I want waterproof gorpcore jackets..." type="text"/>
+<button class="absolute right-md top-1/2 -translate-y-1/2 bg-primary text-on-primary font-label-sm text-label-sm uppercase px-lg py-sm rounded hover:bg-on-surface-variant transition-colors">
+                        Run Query
+                    </button>
+</div>
+<!-- Technical Filter Bar -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-sm flex flex-wrap items-center gap-md font-label-sm text-label-sm uppercase tracking-widest text-primary">
+<div class="flex items-center gap-sm px-sm border-r border-outline-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
+<span>Filters</span>
+</div>
+<!-- Supplier Dropdown -->
+<div class="relative flex items-center gap-sm px-sm border-r border-outline-variant group cursor-pointer">
+<span class="text-on-surface-variant">Supplier:</span>
+<span>All Networks</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+<!-- Rating -->
+<div class="flex items-center gap-sm px-sm border-r border-outline-variant">
+<span class="text-on-surface-variant">Min Rating:</span>
+<input class="w-16 bg-transparent border-b border-outline-variant focus:border-primary p-0 text-center font-label-sm" step="0.1" type="number" value="4.5"/>
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="star" data-weight="fill">star</span>
+</div>
+<!-- Margin -->
+<div class="flex items-center gap-sm px-sm border-r border-outline-variant">
+<span class="text-on-surface-variant">Min Margin:</span>
+<input class="w-16 bg-transparent border-b border-outline-variant focus:border-primary p-0 text-center font-label-sm" type="text" value="65%"/>
+</div>
+<!-- Cost -->
+<div class="flex items-center gap-sm px-sm">
+<span class="text-on-surface-variant">Target Cost:</span>
+<span class="text-on-surface-variant">$</span>
+<input class="w-20 bg-transparent border-b border-outline-variant focus:border-primary p-0 font-label-sm" placeholder="Max" type="number"/>
+</div>
+<button class="ml-auto text-on-surface-variant hover:text-primary underline decoration-1 underline-offset-4 px-md">
+                        Clear All
+                    </button>
+</div>
+</section>
+<!-- Results Data Grid (Bento Pattern) -->
+<section class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-lg">
+<!-- Product Card 1 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded flex flex-col group hover:border-primary transition-colors duration-300">
+<div class="relative w-full aspect-square border-b border-outline-variant overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A high-fashion editorial product shot of a technical waterproof gorpcore jacket in slate grey and black. The jacket features multiple asymmetrical pockets, taped seams, and a structured hood. Lighting is clinical, bright, and even, set against a pure white studio background. The aesthetic is clean, minimalist, and utilitarian, aligning with a premium modern streetwear brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOF88h_OzhHtaH6jghNMpo6dAHRrHqNkYHQkdCCqpEfor9byR5oJYN3BNuYA_U7vNuckFoKbTdZwNNIzPxWRoBh3LpJXBw-4KIIP7Vowo0n1YJGySVJj3ugLUFDFBhEqY4UNGNrrRjDiDxey71saubNNhk7NLJMhrRIv9O7QeCazGZVrCiC_pq5Pw5vMdYqnS4kLRh2Cmw-XfAuBi7LJOIf-2IrTVCcEVEwxpMjQBPV4Vbt5NU4y_Z0g"/>
+<div class="absolute top-sm right-sm bg-surface-container-lowest/90 backdrop-blur text-primary font-label-sm text-label-sm px-sm py-xs border border-outline-variant rounded uppercase">
+                            98% Match
+                        </div>
+</div>
+<div class="p-md flex flex-col gap-md flex-1">
+<div class="flex justify-between items-start gap-md">
+<div>
+<h3 class="font-headline-md text-[18px] font-bold text-primary leading-tight">Apex Hardshell Pro Mk. II</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs uppercase">Supplier: CJ Network • Factory ID: 8992A</p>
+</div>
+</div>
+<!-- Financials -->
+<div class="grid grid-cols-2 gap-sm bg-surface p-sm border border-outline-variant rounded">
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest">Est. Cost</span>
+<span class="font-body-md text-body-md font-bold text-primary">$28.50</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant pl-sm">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest">Proj. Margin</span>
+<span class="font-body-md text-body-md font-bold text-primary">78%</span>
+</div>
+</div>
+<!-- SCORE Metrics -->
+<div class="flex flex-col gap-xs mt-auto">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Quality Score</span>
+<span class="font-label-sm text-label-sm font-bold text-primary">91/100</span>
+</div>
+<div class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[91%]"></div>
+</div>
+<div class="flex justify-between items-center mt-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Demand Score</span>
+<span class="font-label-sm text-label-sm font-bold text-primary">88/100</span>
+</div>
+<div class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[88%]"></div>
+</div>
+<div class="flex justify-between items-center mt-sm pt-sm border-t border-outline-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Supplier Risk</span>
+<span class="font-label-sm text-label-sm font-bold text-primary px-sm py-xs border border-primary rounded">LOW</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="grid grid-cols-2 gap-sm p-md pt-0">
+<button class="col-span-2 bg-primary text-on-primary font-label-sm text-label-sm uppercase py-sm rounded hover:bg-on-surface-variant transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+                            Import Product
+                        </button>
+<button class="bg-transparent border border-primary text-primary font-label-sm text-label-sm uppercase py-sm rounded hover:bg-primary hover:text-on-primary transition-colors">
+                            View Source
+                        </button>
+<button class="bg-transparent border border-outline-variant text-on-surface-variant font-label-sm text-label-sm uppercase py-sm rounded hover:border-primary hover:text-primary transition-colors">
+                            Reject
+                        </button>
+</div>
+</article>
+<!-- Product Card 2 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded flex flex-col group hover:border-primary transition-colors duration-300">
+<div class="relative w-full aspect-square border-b border-outline-variant overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A crisp studio photograph of a technical urbanwear windbreaker in olive green. The garment displays tactical webbing, matte black hardware, and an oversized silhouette. The shot is well-lit with high contrast, isolated on a stark white background to emphasize the fabric texture and technical details. Minimalist and luxurious presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUlLqNBgKqIgbWCYYgVrKve_fRcULDFNiwkz0FsOiIWeq6GeuLLOOht3GOGnGw6at_Oazj1UVPyDv726h939amXkjsWx1-gGnIWMrNg_ml_ZAMBHrGKsK2kYMN5XiuruH1bGGMD5d8pJRh4WTpq4hHk10WZfXBZrytDylqkVHg2SksQSmVj8RO5NoiCEqjBhft6mCE_yj-19aOqyp_q9_vGRsYEZRq1u7xZSdszeoSezBiSOSuqN_EEw"/>
+<div class="absolute top-sm right-sm bg-surface-container-lowest/90 backdrop-blur text-primary font-label-sm text-label-sm px-sm py-xs border border-outline-variant rounded uppercase">
+                            94% Match
+                        </div>
+</div>
+<div class="p-md flex flex-col gap-md flex-1">
+<div class="flex justify-between items-start gap-md">
+<div>
+<h3 class="font-headline-md text-[18px] font-bold text-primary leading-tight">Tactical Shell Anorak</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs uppercase">Supplier: 1688 Direct • Factory ID: CN-GZ4</p>
+</div>
+</div>
+<!-- Financials -->
+<div class="grid grid-cols-2 gap-sm bg-surface p-sm border border-outline-variant rounded">
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest">Est. Cost</span>
+<span class="font-body-md text-body-md font-bold text-primary">$19.20</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant pl-sm">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest">Proj. Margin</span>
+<span class="font-body-md text-body-md font-bold text-primary">82%</span>
+</div>
+</div>
+<!-- SCORE Metrics -->
+<div class="flex flex-col gap-xs mt-auto">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Quality Score</span>
+<span class="font-label-sm text-label-sm font-bold text-primary">85/100</span>
+</div>
+<div class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%]"></div>
+</div>
+<div class="flex justify-between items-center mt-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Demand Score</span>
+<span class="font-label-sm text-label-sm font-bold text-primary">95/100</span>
+</div>
+<div class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[95%]"></div>
+</div>
+<div class="flex justify-between items-center mt-sm pt-sm border-t border-outline-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Supplier Risk</span>
+<span class="font-label-sm text-label-sm font-bold text-primary px-sm py-xs border border-primary rounded">MED</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="grid grid-cols-2 gap-sm p-md pt-0">
+<button class="col-span-2 bg-primary text-on-primary font-label-sm text-label-sm uppercase py-sm rounded hover:bg-on-surface-variant transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+                            Import Product
+                        </button>
+<button class="bg-transparent border border-primary text-primary font-label-sm text-label-sm uppercase py-sm rounded hover:bg-primary hover:text-on-primary transition-colors">
+                            View Source
+                        </button>
+<button class="bg-transparent border border-outline-variant text-on-surface-variant font-label-sm text-label-sm uppercase py-sm rounded hover:border-primary hover:text-primary transition-colors">
+                            Reject
+                        </button>
+</div>
+</article>
+<!-- Product Card 3 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded flex flex-col group hover:border-primary transition-colors duration-300">
+<div class="relative w-full aspect-square border-b border-outline-variant overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A highly detailed product image of a futuristic, multi-layered tactical vest and shell jacket combo in matte black. Features include magnetic closures and technical fabric paneling. The lighting is sharp, creating subtle shadows that highlight the 3D structure of the garment. Clean, high-end e-commerce photography on a light grey seamless backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDUnzPBY_4a-LB8zmmDVaALNOK1KBiKAuWUVPdG8tabH_WQ8ACVwOjqTKsEq2tX2xvdVLZNDbrLNyasUWTnC1yfTAZKDr28LvvpMd__Si0_t07U7MMx2puI6dSmNSz9jvmY17FN1AJdby53aNPn1G4Oubj5SeHe7AIsEjFWvxj6AUyzAtjPXtPGgcyY2NplHXXtAesmhQL2k5PuOP2i4XK1nY3Lk6jntdlP352uaAVv62mRtNhR1a_BQ"/>
+<div class="absolute top-sm right-sm bg-surface-container-lowest/90 backdrop-blur text-primary font-label-sm text-label-sm px-sm py-xs border border-outline-variant rounded uppercase">
+                            88% Match
+                        </div>
+</div>
+<div class="p-md flex flex-col gap-md flex-1">
+<div class="flex justify-between items-start gap-md">
+<div>
+<h3 class="font-headline-md text-[18px] font-bold text-primary leading-tight">Modular Utility Shell</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs uppercase">Supplier: Weidian B2B • Factory ID: WX-91</p>
+</div>
+</div>
+<!-- Financials -->
+<div class="grid grid-cols-2 gap-sm bg-surface p-sm border border-outline-variant rounded">
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest">Est. Cost</span>
+<span class="font-body-md text-body-md font-bold text-primary">$34.00</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant pl-sm">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest">Proj. Margin</span>
+<span class="font-body-md text-body-md font-bold text-primary">70%</span>
+</div>
+</div>
+<!-- SCORE Metrics -->
+<div class="flex flex-col gap-xs mt-auto">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Quality Score</span>
+<span class="font-label-sm text-label-sm font-bold text-primary">96/100</span>
+</div>
+<div class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[96%]"></div>
+</div>
+<div class="flex justify-between items-center mt-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Demand Score</span>
+<span class="font-label-sm text-label-sm font-bold text-primary">78/100</span>
+</div>
+<div class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[78%]"></div>
+</div>
+<div class="flex justify-between items-center mt-sm pt-sm border-t border-outline-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Supplier Risk</span>
+<span class="font-label-sm text-label-sm font-bold text-primary px-sm py-xs border border-primary rounded">LOW</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="grid grid-cols-2 gap-sm p-md pt-0">
+<button class="col-span-2 bg-primary text-on-primary font-label-sm text-label-sm uppercase py-sm rounded hover:bg-on-surface-variant transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+                            Import Product
+                        </button>
+<button class="bg-transparent border border-primary text-primary font-label-sm text-label-sm uppercase py-sm rounded hover:bg-primary hover:text-on-primary transition-colors">
+                            View Source
+                        </button>
+<button class="bg-transparent border border-outline-variant text-on-surface-variant font-label-sm text-label-sm uppercase py-sm rounded hover:border-primary hover:text-primary transition-colors">
+                            Reject
+                        </button>
+</div>
+</article>
+</section>
+</div>
+</main>
+</body></html>
